@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />}>
-          <Route path="/" element={<CategoryMenu />} />
+          <Route index element={<CategoryMenu />} />
         </Route>
       </Routes>
     </div>

@@ -1,12 +1,14 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import CategoryMenu from "../../components/category-menu/CategoryMenu";
+import Footer from "../../components/footer/Footer";
+import NavigationBar from "../../components/navigation/NavigationBar";
 
 function Home(props) {
   return (
     <div>
+      <NavigationBar />
       <Outlet />
-      <footer>All Rights Reserved. Michael K 2022.</footer>
+      <Footer />
     </div>
   );
 }
