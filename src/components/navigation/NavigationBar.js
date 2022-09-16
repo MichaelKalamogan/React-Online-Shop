@@ -18,6 +18,10 @@ function NavigationBar(props) {
         <Link className="nav-link" to="/hats">
           Hats
         </Link>
+
+        <Link className="nav-link" to="/sign-in">
+          Sign In
+        </Link>
       </div>
     </div>
   );
