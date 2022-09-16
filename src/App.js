@@ -34,7 +34,7 @@ function App() {
         {categories.map(({ id, title, imageUrl }) => (
           <div className="category-container" key={id}>
             <div
-              className="background=image"
+              className="background-image"
               style={{ backgroundImage: `url(${imageUrl})` }}
             />
             <div className="category-body-container">
