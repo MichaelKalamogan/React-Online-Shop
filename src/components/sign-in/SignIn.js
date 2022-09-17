@@ -1,11 +1,14 @@
 import React from "react";
-import { signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
+import {
+  createUserDocumentFromAuth,
+  signInWithGooglePopup,
+} from "../../utils/firebase/firebase.utils";
 
 function SignIn(props) {
   const logGoogleUser = async () => {
     try {
-      const response = await signInWithGooglePopup();
-      console.log(response);
+      const { user } = await signInWithGooglePopup();
+      const userDocRef = await createUserDocumentFromAuth(user);
     } catch (error) {
       console.log(error);
     }
