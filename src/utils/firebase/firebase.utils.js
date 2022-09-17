@@ -16,12 +16,12 @@ import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: "online-shop-c7f9f.firebaseapp.com",
-  projectId: "online-shop-c7f9f",
-  storageBucket: "online-shop-c7f9f.appspot.com",
-  messagingSenderId: "726203781401",
-  appId: "1:726203781401:web:c0f00efaf0c09ac4b93588",
-  measurementId: "G-S85KP4PZZC",
+  authDomain: "online-shop-51395.firebaseapp.com",
+  projectId: "online-shop-51395",
+  storageBucket: "online-shop-51395.appspot.com",
+  messagingSenderId: "704186005302",
+  appId: "1:704186005302:web:6e9cc148e587929a7de597",
+  measurementId: "G-XEWEVZLT79",
 };
 
 // Initialize Firebase
