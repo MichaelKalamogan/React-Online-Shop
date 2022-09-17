@@ -7,19 +7,21 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
+
+import { getFireStore, doc, getDoc, setDoc } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBaB3GfuXMgZBf96CGGMq1AmVOa8_bx-8U",
-  authDomain: "online-shop-90138.firebaseapp.com",
-  projectId: "online-shop-90138",
-  storageBucket: "online-shop-90138.appspot.com",
-  messagingSenderId: "515546826651",
-  appId: "1:515546826651:web:abd70d529de59e9829033e",
-  measurementId: "G-S45CJLMLP4",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: "online-shop-c7f9f.firebaseapp.com",
+  projectId: "online-shop-c7f9f",
+  storageBucket: "online-shop-c7f9f.appspot.com",
+  messagingSenderId: "726203781401",
+  appId: "1:726203781401:web:c0f00efaf0c09ac4b93588",
+  measurementId: "G-S85KP4PZZC",
 };
 
 // Initialize Firebase
@@ -31,3 +33,4 @@ provider.setCustomParameters({ prompt: "select_account" });
 
 export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const db = getFireStore();
