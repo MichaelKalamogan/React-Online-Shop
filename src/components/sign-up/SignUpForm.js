@@ -4,7 +4,9 @@ import {
   createAuthUserWithEmailPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
+import Button from "../button/Button";
 import FormInput from "../form-input/FormInput";
+import "./SignUpForm.scss";
 
 function SignUpForm() {
   const defaultFormFields = {
@@ -46,8 +48,9 @@ function SignUpForm() {
     }
   };
   return (
-    <div>
-      <h1>Sign Up with email</h1>
+    <div className="sign-up-container">
+      <h2>Don't have an Account?</h2>
+      <span>Sign Up with email</span>
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Display Name"
@@ -84,8 +87,9 @@ function SignUpForm() {
           required
           onChange={handleChange}
         />
-
-        <button type="submit">Sign Up</button>
+        <Button buttonType="inverted" type="submit">
+          Sign Up
+        </Button>
       </form>
     </div>
   );
