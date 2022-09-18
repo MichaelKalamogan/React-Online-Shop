@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import CategoryMenu from "./components/category-menu/CategoryMenu";
-import SignIn from "./components/sign-in/SignIn";
+import Authentication from "./components/sign-in/Authentication";
 import Home from "./routes/home/Home";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}>
           <Route index element={<CategoryMenu />} />
-          <Route path="sign-in" element={<SignIn />} />
+          <Route path="auth" element={<Authentication />} />
         </Route>
       </Routes>
     </div>
