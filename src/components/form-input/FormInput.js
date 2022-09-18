@@ -1,6 +1,6 @@
 import React from "react";
 import "./FormInput.scss";
-function FormInput({ label, otherProps }) {
+function FormInput({ label, ...otherProps }) {
   return (
     <div className="group">
       <input className="form-input" {...otherProps} />

@@ -1,4 +1,3 @@
-import React from "react";
 import "./Button.scss";
 
 const BUTTON_TYPE_CLASSES = {
@@ -6,7 +5,7 @@ const BUTTON_TYPE_CLASSES = {
   inverted: "inverted",
 };
 
-function Button({ children, buttonType, ...otherProps }) {
+const Button = ({ children, buttonType, ...otherProps }) => {
   return (
     <button
       className={`button-container ${BUTTON_TYPE_CLASSES[buttonType]}`}
@@ -15,6 +14,6 @@ function Button({ children, buttonType, ...otherProps }) {
       {children}
     </button>
   );
-}
+};
 
 export default Button;
