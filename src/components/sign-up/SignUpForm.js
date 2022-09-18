@@ -4,6 +4,7 @@ import {
   createAuthUserWithEmailPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
+import FormInput from "../form-input/FormInput";
 
 function SignUpForm() {
   const defaultFormFields = {
@@ -12,12 +13,9 @@ function SignUpForm() {
     password: "",
     confirmPassword: "",
   };
-
   const [formFields, setFormFields] = useState(defaultFormFields);
 
   const { displayName, email, password, confirmPassword } = formFields;
-
-  const resetFormFields = setFormFields(defaultFormFields);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -25,6 +23,9 @@ function SignUpForm() {
     setFormFields({ ...formFields, [name]: value });
   };
 
+  const resetFormFields = () => {
+    setFormFields(defaultFormFields);
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
@@ -36,7 +37,6 @@ function SignUpForm() {
       const { user } = await createAuthUserWithEmailPassword(email, password);
 
       await createUserDocumentFromAuth(user, { displayName });
-
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
@@ -49,8 +49,8 @@ function SignUpForm() {
     <div>
       <h1>Sign Up with email</h1>
       <form onSubmit={handleSubmit}>
-        <label>Display Name</label>
-        <input
+        <FormInput
+          label="Display Name"
           name="displayName"
           value={displayName}
           type="text"
@@ -58,8 +58,8 @@ function SignUpForm() {
           onChange={handleChange}
         />
 
-        <label>Email Address</label>
-        <input
+        <FormInput
+          label="Email Address"
           name="email"
           value={email}
           type="email"
@@ -67,8 +67,8 @@ function SignUpForm() {
           onChange={handleChange}
         />
 
-        <label>Password</label>
-        <input
+        <FormInput
+          label="Password"
           name="password"
           value={password}
           type="password"
@@ -76,8 +76,8 @@ function SignUpForm() {
           onChange={handleChange}
         />
 
-        <label>Confirm Password</label>
-        <input
+        <FormInput
+          label="Confirm Password"
           name="confirmPassword"
           value={confirmPassword}
           type="password"
