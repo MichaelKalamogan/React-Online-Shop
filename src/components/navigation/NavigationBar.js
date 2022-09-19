@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as CrownLogo } from "../../assets/crown.svg";
+import { UserContext } from "../../contexts/UserContext";
 import "./NavigationBar.scss";
 
 function NavigationBar(props) {
+  const { currentUser } = useContext(UserContext);
+
   return (
     <div className="navigation">
       <Link className="logo-container" to="/">
@@ -20,7 +23,7 @@ function NavigationBar(props) {
         </Link>
 
         <Link className="nav-link" to="/sign-in">
-          Sign In
+          {currentUser ? "Sign Out" : "Sign In"}
         </Link>
       </div>
     </div>

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { UserContext } from "../../contexts/UserContext";
 import {
   createAuthUserWithEmailPassword,
   createUserDocumentFromAuth,
@@ -18,6 +19,8 @@ function SignIn() {
 
   const { email, password } = formFields;
 
+  const { setCurrentUser } = useContext(UserContext);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
@@ -26,10 +29,13 @@ function SignIn() {
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
+
   const signInWithGoogle = async () => {
     try {
       const { user } = await signInWithGooglePopup();
       const userDocRef = await createUserDocumentFromAuth(user);
+
+      setCurrentUser(user);
     } catch (error) {
       console.log(error);
     }
@@ -39,17 +45,18 @@ function SignIn() {
     event.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
-      console.log(response);
+      setCurrentUser(user);
       resetFormFields();
     } catch (error) {
       alert("unable to login");
       console.log(`user creation error: ${error.message}`);
     }
   };
+
   return (
     <div className="sign-in-container">
       <h2>Already have an Account?</h2>
